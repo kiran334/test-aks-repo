@@ -8,7 +8,7 @@ FROM nginx:latest
 # ENV ENV_VAR_NAME=value
 
 # Expose any ports your application uses
-# EXPOSE 80
+EXPOSE 80
 
 # Define any health check or other configuration as required
 # HEALTHCHECK --interval=5m --timeout=3s \
