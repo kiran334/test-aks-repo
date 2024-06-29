@@ -14,7 +14,7 @@ jobs:
 
       - name: Build and push NGINX Docker image to JFrog
         env:
-          JFROG_REGISTRY: example.jfrog.io  # Replace with your JFrog registry URL
+          JFROG_REGISTRY: saitestjfrog.jfrog.io  # Replace with your JFrog registry URL
           JFROG_USERNAME: ${{ secrets.JFROG_USERNAME }}
           JFROG_API_KEY: ${{ secrets.JFROG_API_KEY }}
         run: |
