@@ -1,0 +1,23 @@
+name: Push NGINX to JFrog
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push to main branch, adjust as needed
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and push NGINX Docker image to JFrog
+        env:
+          JFROG_REGISTRY: example.jfrog.io  # Replace with your JFrog registry URL
+          JFROG_USERNAME: ${{ secrets.JFROG_USERNAME }}
+          JFROG_API_KEY: ${{ secrets.JFROG_API_KEY }}
+        run: |
+          docker build -t $JFROG_REGISTRY/nginx:latest .
+          docker login $JFROG_REGISTRY -u $JFROG_USERNAME -p $JFROG_API_KEY
+          docker push $JFROG_REGISTRY/nginx:latest
