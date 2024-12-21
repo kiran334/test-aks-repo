@@ -19,6 +19,7 @@ terraform {
       version = "0.9.1"
     }
   }
+/*
   backend "remote" {
 		hostname = "app.terraform.io"
 		organization = "kiran-545-Org"
@@ -27,6 +28,7 @@ terraform {
 			name = "default-workspace-01"
 		}
 	}
+*/
 }
 
 provider "azurerm" {
