@@ -32,3 +32,13 @@ terraform {
 provider "azurerm" {
   features {}
 }
+terraform { 
+  cloud { 
+    
+    organization = "kiran-545-Org" 
+
+    workspaces { 
+      name = "default-workspace-01" 
+    } 
+  } 
+}
