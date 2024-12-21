@@ -89,10 +89,15 @@ jobs:
         run: |
           pwd
           ls -la
-        
+
       - name: Install Azure CLI
         run: |
           curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+          az --version
+
+      - name: Verify Azure CLI Installation
+        run: |
+          which az
           az --version
 
       - name: Az CLI Login
@@ -110,7 +115,7 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-      
+
       - name: Terraform Validate
         run: terraform validate
 
@@ -122,3 +127,4 @@ jobs:
 
       - name: Terraform Output
         run: terraform output
+
