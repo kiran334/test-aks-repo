@@ -21,10 +21,10 @@ terraform {
   }
   backend "remote" {
 		hostname = "app.terraform.io"
-		organization = "kiran334-org"
+		organization = "kiran-545-Org"
 
 		workspaces {
-			name = "Default-workspace"
+			name = "default-workspace-01"
 		}
 	}
 }
