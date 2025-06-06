@@ -1,0 +1,46 @@
+name: Deploy ADF to Azure
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+
+env:
+  ADF_NAME: test-adf-777
+  RESOURCE_GROUP: dev-rg
+  LOCATION: eastus2
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set environment dynamically
+      id: setenv
+      run: |
+        if [[ "${GITHUB_REF##*/}" == "main" ]]; then
+          echo "env=prod" >> $GITHUB_OUTPUT
+        else
+          echo "env=dev" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Deploy ADF ARM Template
+      uses: azure/arm-deploy@v1
+      with:
+        scope: resourcegroup
+        resourceGroupName: ${{ env.RESOURCE_GROUP }}
+        template: ./adf_publish/ARMTemplateForFactory.json
+        parameters: ./adf_publish/ARMTemplateParametersForFactory.json factoryName=${{ env.ADF_NAME }} environment=${{ steps.setenv.outputs.env }}
+        deploymentName: adf-deploy-${{ github.run_number }}
+
+    - name: Logout from Azure
+      run: az logout
