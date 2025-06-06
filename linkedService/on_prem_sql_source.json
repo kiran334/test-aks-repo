@@ -1,0 +1,21 @@
+{
+	"name": "on_prem_sql_source",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "Dell-Saikiran",
+			"database": "my_db_new",
+			"encrypt": "optional",
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "myadfuser",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIyNjQxN2ZiMy1mMzg4LTQ3YWMtODBkOC0wNWQwNmUxMmM4YzUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1-self-hosted",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
