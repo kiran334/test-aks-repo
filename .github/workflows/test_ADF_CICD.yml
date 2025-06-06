@@ -38,8 +38,8 @@ jobs:
       with:
         scope: resourcegroup
         resourceGroupName: ${{ env.RESOURCE_GROUP }}
-        template: ./adf_publish/ARMTemplateForFactory.json
-        parameters: ./adf_publish/ARMTemplateParametersForFactory.json factoryName=${{ env.ADF_NAME }} environment=${{ steps.setenv.outputs.env }}
+        template: ./ARMTemplateForFactory.json
+        parameters: ./ARMTemplateParametersForFactory.json factoryName=${{ env.ADF_NAME }} environment=${{ steps.setenv.outputs.env }}
         deploymentName: adf-deploy-${{ github.run_number }}
 
     - name: Logout from Azure
