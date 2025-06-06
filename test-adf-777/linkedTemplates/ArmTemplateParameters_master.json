@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "test-adf-777"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"on_prem_sql_source_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://testsaadfshir.dfs.core.windows.net/"
+		},
+		"on_prem_sql_source_properties_typeProperties_server": {
+			"value": "Dell-Saikiran"
+		},
+		"on_prem_sql_source_properties_typeProperties_database": {
+			"value": "my_db_new"
+		},
+		"on_prem_sql_source_properties_typeProperties_userName": {
+			"value": "myadfuser"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
